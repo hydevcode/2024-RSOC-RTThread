@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+# Obsidian Files
+.obsidian
