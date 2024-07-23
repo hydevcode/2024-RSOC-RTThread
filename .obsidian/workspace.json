@@ -1,0 +1,162 @@
+{
+  "main": {
+    "id": "bd5f053eda31bd36",
+    "type": "split",
+    "children": [
+      {
+        "id": "5aeaec576b440c79",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6e26a47d9075c331",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "RTThread-Notes/笔记/第二天笔记/嵌入式实时系统笔记.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ba6e00405bcbc4cd",
+    "type": "split",
+    "children": [
+      {
+        "id": "99355c90f2a961b2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4b16bafa49d4f3f9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1842fc06fec9a7ca",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "bc6851824d318628",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "03b29199300ddf91",
+    "type": "split",
+    "children": [
+      {
+        "id": "3ee6d4d24be4254e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3a66578a37fd3533",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "RTThread-Notes/笔记/第二天笔记/嵌入式实时系统笔记.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a20d075c8d320de3",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "RTThread-Notes/笔记/第二天笔记/嵌入式实时系统笔记.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "b8c912eb187689a8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "b8c5125e72d21e1b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "RTThread-Notes/笔记/第二天笔记/嵌入式实时系统笔记.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "6e26a47d9075c331",
+  "lastOpenFiles": [
+    "RTThread-Notes/笔记/第二天笔记/RTThread内核原理.md",
+    "RTThread-Notes/笔记/第二天笔记/嵌入式实时系统笔记.md",
+    "笔记/第二天笔记/RTThread内核原理.md",
+    "笔记/第二天笔记/嵌入式实时系统笔记.md",
+    "笔记/第二天笔记",
+    "未命名 1",
+    "笔记/第一天笔记",
+    "笔记/第一天笔记.md",
+    "笔记",
+    "Welcome.md"
+  ]
+}
