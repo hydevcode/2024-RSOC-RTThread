@@ -32,4 +32,5 @@
 *.app
 
 # Obsidian Files
-.obsidian
+.obsidian/
+.obsidian/*
