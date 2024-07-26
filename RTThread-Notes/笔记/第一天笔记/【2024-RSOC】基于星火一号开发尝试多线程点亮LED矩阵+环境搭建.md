@@ -16,10 +16,10 @@
 来到git的官网[Git - Downloading Package](https://git-scm.com/download/win)
 根据电脑版本任选其一，下载安装
 
-![](【2024-RSOC】基于星火一号开发尝试多线程点亮LED矩阵+环境搭建.assets/Pasted%20image%2020240723192204.png)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631674.png)
 
 安装完成后可以查看下自己电脑有没有这两个软件
-![](【2024-RSOC】基于星火一号开发尝试多线程点亮LED矩阵+环境搭建.assets/image-20240723201215057.png)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631675.png)
 
 有就是安装好了,可以打开着备用
 
@@ -27,11 +27,11 @@
 打开下载链接
 [https://download-redirect.rt-thread.org/download/env_release/env-windows-v2.0.0.7z](https://download-redirect.rt-thread.org/download/env_release/env-windows-v2.0.0.7z)
 下载解压到rtthread文件夹
-![](【2024-RSOC】基于星火一号开发尝试多线程点亮LED矩阵+环境搭建.assets/image-20240723201713854.png)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631676.png)
 进入该目录，双击打开 env.exe文件 ，他就会自动开始下载配置env环境(网络不好的也许要挂加速器？)，等一段时间，命令行不动了，按下回车看下会不会弹出一段路径，有的话就是配置好了
 ### 然后是注册到环境变量里
-![](【2024-RSOC】基于星火一号开发尝试多线程点亮LED矩阵+环境搭建.assets/image-20240723202411889.png)
-![](【2024-RSOC】基于星火一号开发尝试多线程点亮LED矩阵+环境搭建.assets/image-20240723202455914.png)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631677.png)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631678.png)
 
 ## RT-Thread源码下载
 
@@ -59,7 +59,7 @@ git checkout RSOC-2024
 ```
 D:\rtthread\rt-thread\bsp\stm32\stm32f407-rt-spark
 ```
-![](【2024-RSOC】基于星火一号开发尝试多线程点亮LED矩阵+环境搭建.assets/image-20240723205534896.png)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631679.png)
 
 右键空白处会出现刚才我们安装的ENV窗口
 打开之后输入scons --target=vsc生成VSCode工程文件
@@ -68,23 +68,23 @@ D:\rtthread\rt-thread\bsp\stm32\stm32f407-rt-spark
 
 ## 安装vscode插件
 
-![](【2024-RSOC】基于星火一号开发尝试多线程点亮LED矩阵+环境搭建.assets/image-20240723205836368.png)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631680.png)
 
 来到左边点击拓展，搜索c++就会弹出这两个拓展，点击安装
-![](【2024-RSOC】基于星火一号开发尝试多线程点亮LED矩阵+环境搭建.assets/image-20240723205947430.png)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631681.png)
 
 这个也要装上，一样的步骤
 
 随后开始配置vscode调试配置
 
-![](【2024-RSOC】基于星火一号开发尝试多线程点亮LED矩阵+环境搭建.assets/image-20240723210155773.png)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631682.png)
 
 在左边找到调试按钮，点进去，可以看到有个创建launch.json文件，点击
 
 界面上会出现一个类似搜索框的东西
 搜索框下面有个Cortex Debug，点击即可
 
-![](【2024-RSOC】基于星火一号开发尝试多线程点亮LED矩阵+环境搭建.assets/image-20240723210326012.png)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631683.png)
 找到launch.json打开
 另外settings.json可以右键自己新建好等会用
 
@@ -174,10 +174,10 @@ OpenOCD放到rtthread文件夹下
 
 如果不行可以来到如图
 手动按运行
-![](【2024-RSOC】基于星火一号开发尝试多线程点亮LED矩阵+环境搭建.assets/image-20240723211022284.png)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631684.png)
 
 下载成功后会弹出这个，点击第二个全速运行，不出意外可以看到LED在闪烁
-![](【2024-RSOC】基于星火一号开发尝试多线程点亮LED矩阵+环境搭建.assets/image-20240723211050487.png)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631685.png)
 
 按照教程配置好环境后，尝试来点一下星火一号上的LED矩阵
 ## Menuconfig配置
@@ -186,11 +186,11 @@ scons --target=vsc然后回车生成VSCode工程，已经生成过了继续往�
 
 接着输入menuconfig.exe，然后回车进入配置界面
 
-![](基于星火一号的电亮LED矩阵的demo.assets/image-20240723203420113.png)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631686.png)
 
 使用键盘的上下键来移动,回车进入,根据下图给的路径来到板子的外设配置界面
 
-![](基于星火一号的电亮LED矩阵的demo.assets/image-20240723203601659.png)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631687.png)
 只需要来到Led MATRIX下按下回车打开即可，前面的 * 就是打开了的意思
 配置好按ESC返回，中途提示要保存就按Y
 
@@ -201,7 +201,7 @@ scons --target=vsc然后回车生成VSCode工程，已经生成过了继续往�
 打开main.c
 加入如下代码
 
-![](基于星火一号的电亮LED矩阵的demo.assets/image-20240723204143113.png)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631688.png)
 ```
 
 #include <board.h>
@@ -281,8 +281,8 @@ int main(void)
 代码比较简陋
 
 接下来编译
-![](基于星火一号的电亮LED矩阵的demo.assets/image-20240723204324357.png)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631689.png)
 
 没有问题那就可以运行了
 点开全速运行应该就能看到Led矩阵的效果了
-![](【2024-RSOC】基于星火一号开发尝试多线程点亮LED矩阵+环境搭建.assets/1ba8a7c20d32e3a03bf416acb45708ae.gif)
+![](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270631690.gif)
