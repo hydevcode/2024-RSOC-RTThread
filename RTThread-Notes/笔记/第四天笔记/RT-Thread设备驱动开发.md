@@ -37,5 +37,8 @@
 
 I/O提供一套接口open write read control close SPI I2C GPIO RTC WDG特定API
 
+### I/O派生设备种类
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270404800.png)
 
 
