@@ -33,6 +33,9 @@
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407262102060.png)
 
- 
+ ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270336071.png)
+
+I/O提供一套接口open write read controlclose SPII2CGPIORTCWDG特定API
+
 
 
