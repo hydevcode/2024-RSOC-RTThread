@@ -111,3 +111,22 @@ list device可以查看当前以及创建了的设备驱动
 
 ### 创建I/O 设备管理接口
 
+在写代码前，我们先来看下刚才创建的rt_device里面有什么
+
+首先是一个基类对象，这里跟上面的框架分析里的类继承图是对应上的
+然后是另一个比较重点的ops，设备操作方法
+这个RT-Thread提供的一套I/O 设备管理接口规范，主要是让建好的桥梁可以跟应用层对接上
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407280155026.png)
+
+代表了设备的一些操作，可以看到他们都是函数指针，意味着我们要自己实现里面的函数并让这些指针指向实现的函数，这样应用层就可以使用了
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407280154544.png)
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407280203905.png)
+比如说，当应用层调用rt_device_init，其实就是调用了另一个函数init
+
+
+
+
+
