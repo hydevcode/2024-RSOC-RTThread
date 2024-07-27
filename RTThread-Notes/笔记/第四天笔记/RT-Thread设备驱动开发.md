@@ -55,3 +55,8 @@ I/O提供一套接口open write read control close SPI I2C GPIO RTC WDG特定API
 MSH可以重定向到任意的字符设备上，例如将lcd模拟成字符设备，就可以将打印输出到LCD上，或者是实现一套空字符设备，将msh重定向到这里。
 Fatfs文件系统依赖块设备驱动，我们将SD卡读写实现成块设备，但是也可以用ram 来模拟块设备驱动，
 不同的组件和应用会依赖不同的设备，对设备进行分类，可以做到对一类设备同样的控制
+
+
+串口设备（RTDeviceClassChar） SDIO 网卡 （RT_Device_Class_SDIO)
+CS43L22(音频codec）（RT_Device_Class_Sound) GPIO (RT Device Class Pin)
+LCD屏幕（RT_Device_Class_Graphic）录音驱动（RTDeviceClassSound）
