@@ -60,3 +60,10 @@ Fatfs文件系统依赖块设备驱动，我们将SD卡读写实现成块设备�
 串口设备（RTDeviceClassChar） SDIO 网卡 （RT_Device_Class_SDIO)
 CS43L22(音频codec）（RT_Device_Class_Sound) GPIO (RT Device Class Pin)
 LCD屏幕（RT_Device_Class_Graphic）录音驱动（RTDeviceClassSound）
+
+### 相关API
+
+
+• rt_device_t rt_device_create(int type, int attach_size);
+• void rt_device_destroy(rt_device_t device);
+
