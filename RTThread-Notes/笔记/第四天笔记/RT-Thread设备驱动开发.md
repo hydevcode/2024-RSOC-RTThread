@@ -128,7 +128,18 @@ list device可以查看当前以及创建了的设备驱动
 
 ## FlexibleButton
 
+## I2C总线
 
+常见的I2C总线以传输速率的不同分为不同的模式：
+低速模式：10Kbit/s
+标准模式：100Kbit/s
+快速模式：400Kbit/s
+高速模式：3.4Mbit/s
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407280623234.png)
+
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407280623897.png)
 
 
 
