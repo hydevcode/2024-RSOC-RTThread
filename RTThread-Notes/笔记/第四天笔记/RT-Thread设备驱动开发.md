@@ -80,8 +80,15 @@ GPIO (RT Device Class Pin)
 LCD屏幕（RT_Device_Class_Graphic）
 录音驱动（RTDeviceClassSound）
 
-### 相关API
 
+### 代码实践
+
+接下来简单实现以下创建设备驱动以及调用设备驱动
+
+#### 创建设备驱动
+
+
+### 相关API
 
 • rt_device_t rt_device_create(int type, int attach_size);
 • void rt_device_destroy(rt_device_t device);
