@@ -81,7 +81,7 @@ GPIO (RT Device Class Pin)
 LCD屏幕（RT_Device_Class_Graphic）
 录音驱动（RTDeviceClassSound）
 
-### 代码实践
+## 代码实践
 
 接下来简单实现一下创建自己的设备驱动
 
@@ -126,7 +126,8 @@ list device可以查看当前以及创建了的设备驱动
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407280203905.png)
 比如说，当应用层调用rt_device_init，其实就是调用了另一个函数init
 
-%% 那么接下来实现一下dev设备的ops接口 %%
+## FlexibleButton
+
 
 
 
