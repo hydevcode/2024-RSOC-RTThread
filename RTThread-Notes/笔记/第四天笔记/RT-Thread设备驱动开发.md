@@ -56,6 +56,7 @@ I/O提供一套接口open write read control close
 
 然后我们还需要了解一些概念
 下图是RT-Thread支持的设备驱动类型
+
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407272346146.png)
 
 ### 字符设备和块设备的特点与区别：
@@ -80,16 +81,33 @@ GPIO (RT Device Class Pin)
 LCD屏幕（RT_Device_Class_Graphic）
 录音驱动（RTDeviceClassSound）
 
-
 ### 代码实践
 
-接下来简单实现以下创建设备驱动以及调用设备驱动
+接下来简单实现一下创建自己的设备驱动
 
-#### 创建设备驱动
+正如上面的框架图，创建设备驱动应该是要包括I/O层及往下的实现
 
+作为应用层和硬件层的桥梁，我们要根据RT-Thread给我们提供的一套规范实现I/O 设备以及 I/O 设备管理接口
+
+这样应用层才可以通过桥梁找到设备并使用他
+#### 创建I/O 设备
+
+注册一个名为dev的字符设备,相当于告诉RT-Thread我要建一座桥，桥在这里，大概的框架长什么样之类的
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407280121317.png)
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407280123591.png)
+
+编写好创建的代码后就可以编译运行了，之后在终端输入rt_device_test就可以运行这段代码了
+list device可以查看当前以及创建了的设备驱动
 
 ### 相关API
 
-• rt_device_t rt_device_create(int type, int attach_size);
-• void rt_device_destroy(rt_device_t device);
+- rt_device_t rt_device_create(int type, int attach_size);
+- void rt_device_destroy(rt_device_t device);
+- rt_err_t rt_device_register(rt_device_t dev, const char* name,rt_uint8_t flags);
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407280119833.png)
+- rt_err_t rt_device_unregister(rt_device_t dev);
+
+### 创建I/O 设备管理接口
 
