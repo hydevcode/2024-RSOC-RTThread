@@ -39,20 +39,26 @@ RT-Thread尽量将代码进行合适的分离，达到代码复用的效果，�
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407262102060.png)
 
-## I/O框架
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407272343668.png)
+
+
+RT-Thread驱动框架层里面就已经写好了一些常用的驱动设备类比如说：
+SPI I2C GPIO RTC WDG特定API
+所以我们接下来先学习如何使用这些类
+### I/O框架
 
 下图是针对I/O框架在应用层的使用，为了跟上面的图区分开特地说下,防止搞乱了
  ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270336071.png)
 
-I/O提供一套接口open write read control close 
-SPI I2C GPIO RTC WDG特定API
+I/O提供一套接口open write read control close
+我们在使用的时候就按照这个顺序调用我们需要设备驱动就可以了
 
-### I/O派生设备种类
+然后我们还需要了解一些概念
+下图是RT-Thread支持的设备驱动类型
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407272346146.png)
 
-![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407270404800.png)
-
-
-##### 字符设备和块设备的特点与区别：
+### 字符设备和块设备的特点与区别：
 
 - 字符设备：提供连续的数据流，应用程序可以顺序读取，通常不支持随机存取。相反，
 此类设备支持按字节/字符来读写数据。举例来说，键盘、串口、调制解调器都是典型的字符设备
@@ -60,7 +66,6 @@ SPI I2C GPIO RTC WDG特定API
 软盘、CD-ROM驱动器和闪存都是典型的块设备，应用程序可以寻址磁盘上的任何位置，并由此读取数据。此外，数据的读写只能以块(通常是512B)的倍数进行。与字符设备不同，块设备并不支持基于字符的寻址。
 
 总结一下，这两种类型的设备的根本区别在于它们是否可以被随机访问。字符设备只能顺序读取，块设备可以随机读取。
-
 
 ### 为什么要对设备分类
 
