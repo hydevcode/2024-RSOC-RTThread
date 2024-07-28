@@ -126,8 +126,6 @@ list device可以查看当前以及创建了的设备驱动
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407280203905.png)
 比如说，当应用层调用rt_device_init，其实就是调用了另一个函数init
 
-## FlexibleButton
-
 ## I2C总线
 
 常见的I2C总线以传输速率的不同分为不同的模式：
@@ -136,13 +134,33 @@ list device可以查看当前以及创建了的设备驱动
 快速模式：400Kbit/s
 高速模式：3.4Mbit/s
 
+I2C主要是用来跟一些如传感器、EEPROM、RTC之类的设备进行通信
+
+下图是可以看到三根横线代表了Vdd，SDA，SCL，然后主控作为Master主机发送，Slave外部设备接收数据，Vdd可以暂时不管，一般来说就是一根3.3V的线
+
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407280623234.png)
 
- 
+接下来看下SDA和SCL线，这是主要负责I2C的
 
+>起始位和结束位：
+> > 起始位（S）：在SCL为高电平时，SDA由高电平变为低电平
+> > 结束位（P）：在SCL为高电平时，SDA由低电平变为高电平
+
+通过改变SDA和SCL的高低电平即可实现数据传输
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407290252847.png)
+
+然后就是实现数据传输还要遵循I2C的传输协议
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407280623897.png)
 
+从上面的主从机图来看，可以发现I2C总线上可能不单单挂着一个设备
+那么跟设备通讯就需要从设备地址
 
-I2C原理：通过SCL和SDA来进行传输数据
+所以一开始需要主设备发送从设备地址，然后从设备收到后知道是来找他的那么就返回一个ACK响应，并准备接收数据，然后主设备就发数据，发完后，从设备发个响应确认接收完毕，那么这次的的数据传输就结束了
+
+应答和非应答需要的高低电平:
+- 应答（ACK）：拉低SDA线，并在SCL为高电平期间保持SDA线为低电平
+- 非应答（NOACK）：不要拉低SDA线（此时SDA线为高电平），并在SCL为高电平期间保持SDA线为高电平
+
 
