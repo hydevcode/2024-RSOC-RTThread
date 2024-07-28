@@ -138,6 +138,8 @@ list device可以查看当前以及创建了的设备驱动
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407280623234.png)
 
+ 
+
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407280623897.png)
 
