@@ -243,8 +243,59 @@ i2c总线死锁：
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407291908457.png)
 
-打开对应外设
+打开对应外设,然后测试下代码
+
+```
+#include <rtthread.h>
+
+#include <rtdevice.h>
+
+#include <drv_gpio.h>
+
+#define LOG_TAG "i2c.app"
+
+#define LOG_LVL LOG_LVL_DBG
+
+#include <ulog.h>
 
 
+static int spi_attach(void)
+{
+    return rt_hw_spi_device_attach("spi2","spi20",GET_PIN(B,12));
+}
+
+INIT_DEVICE_EXPORT(spi_attach);
+  
+
+static int spi_transfor_one_data(void){
+
+    rt_err_t ret=RT_EOK;
+
+    struct rt_spi_device* spi20=(struct rt_spi_device*)rt_device_find("spi20");
+
+    struct rt_spi_configuration cfg;
+
+    cfg.data_width =8;
+
+    cfg.mode=RT_SPI_MASTER|RT_SPI_MODE_0|RT_SPI_MSB;
+
+    cfg.max_hz=1*1000*1000;
+
+     rt_spi_configure(spi20,&cfg);
+
+    rt_uint8_t sendBuff =0xDA;
+
+    rt_uint8_t recvBuff=0xF1;
+
+    ret=rt_spi_transfer(spi20,&sendBuff,&recvBuff,1);
+
+    LOG_I("ret=%d\n",ret);
+}
+
+MSH_CMD_EXPoRT(spi_transfer_one_data,spi_transfer_one_data);
+```
 
 
+## 最后
+
+spi跟i2c部分内容可能还不是很理解，所以暂时只做记录
