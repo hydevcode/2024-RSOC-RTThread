@@ -14,3 +14,19 @@
 ```c
 
 ```
+
+### 另外
+
+如果需要输出小数，那么还需要添加rt_vsnprintf_full包
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407300027894.png)
+
+## MQTT
+
+首先来到阿里云物联网平台注册一个账号，并且选择开通试用一个实例
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407300034536.png)
+
+
+
+
