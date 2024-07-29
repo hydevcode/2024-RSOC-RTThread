@@ -10,12 +10,6 @@
 
 虽然板子自带的是AHT21，但是这个驱动也是适配的了，而且温湿度传感器代码都差不多的，i2c地址正确就行
 
-然后开始写下测试代码
-
-```c
-
-```
-
 ### 另外
 
 如果需要输出小数，那么还需要添加rt_vsnprintf_full包
@@ -34,9 +28,8 @@
 
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407300047004.png)
-![](assets/image-20240730004735507.png)
 
-接下来到menuconfig去开启下wifi模块的软件包
+接下来到menuconfig去开启下wifi模块的软件包,需要按图配置下针脚
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407300049659.png)
 
@@ -59,8 +52,10 @@
 
 ### 文件系统
 
+定义:
+>**DFS** 是 RT-Thread 提供的虚拟文件系统组件，全称为 Device File System。
 
+>在 RT-Thread DFS 中，文件系统有统一的根目录，使用 `/` 来表示。
+>有点类似linux
 
-
-
-
+![DFS 层次架构图](https://www.rt-thread.org/document/site/rt-thread-version/rt-thread-standard/programming-manual/filesystem/figures/fs-layer.png)
