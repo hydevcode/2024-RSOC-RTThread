@@ -27,6 +27,28 @@
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407300034536.png)
 
+然后新建一个产品和设备
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407300043147.png)
+
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407300047004.png)
+![](assets/image-20240730004735507.png)
+
+接下来到menuconfig去开启下wifi模块的软件包
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407300049659.png)
+
+还有阿里云的物联网平台的软件包
+注意：这里需要设置下前四个选项
+分别是产品key和密钥
+以及设备名和密钥
+这些都可以刚创建的产品和设备那里查看
+
+下面还有个simple也开一下，这是实例
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407300050276.png)
+
 
 
 
