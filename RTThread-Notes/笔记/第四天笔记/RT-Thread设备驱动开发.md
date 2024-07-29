@@ -161,6 +161,67 @@ I2C主要是用来跟一些如传感器、EEPROM、RTC之类的设备进行通�
 
 单独的文字理解起来比较模糊，还是敲下代码容易理解点
 
+首先到menuconfig开启想要的I2C
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407291900938.png)
+
+之后就可以通过rt_device_find找到这个驱动
+```
+#include <rtthread.h>
+
+#include <rtdevice.h>
+
+  
+  
+
+#define LOG_TAG "i2c.app"
+
+#define LOG_LVL LOG_LVL_DBG
+
+#include <ulog.h>
+
+  
+
+void i2c_sample(void)
+
+{
+
+    struct rt_i2c_bus_device *i2c_bus;
+
+    struct rt_i2c_msg msgs;
+
+    rt_uint8_t buf[2];
+
+  
+
+    i2c_bus=(struct rt_i2c_bus_device *)rt_device_find("i2c2");//查找I2C
+
+    if(i2c_bus==RT_NULL)
+
+    {
+        LOG_E("can′t find %s device!\n","i2c2");
+        return -1;
+    }
+
+    buf[0]=0x6B;//要传输的数据
+
+    msgs.addr = 0x68;//传输地址
+
+    msgs.flags - RT_I2C_WR;
+
+    msgs.buf= buf;//将数组传给rt_i2c_msg
+
+    msgs.len =1;
+
+    if(rt_i2c_transfer(i2c_bus, &msgs, 1) == 1)
+
+    LOG_I("write success!");
+
+    else
+
+    LOG_E("write failed!");
+}
+MSH_CMD_EXPORT(i2c_sample, i2c_sample);
+```
 
 ### 一些可能的问题
 
@@ -177,6 +238,12 @@ i2c总线死锁：
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407290502308.png)
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407290502811.png)
+
+### 代码实践
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407291908457.png)
+
+打开对应外设
 
 
 
