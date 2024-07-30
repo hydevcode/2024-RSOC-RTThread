@@ -164,7 +164,8 @@ INIT_BOARD_EXPORT(WIFI_CS_PULL_DOWN);
 
 然后格式化一下,运行后来到终端输入mkfs -t elm font
 
-**注意**：第一次的新板子可能需要mkfs -t elm filesystem分配下filesystem，然后重启,不然可能会报错
+**注意**：第一次的新板子可能需要mkfs -t elm filesystem
+mount filesystem /fal elm 分配下filesystem，然后重启,不然可能会报错
 ```
 [684] E/app.filesystem: Failed to initialize filesystem!
 ```
