@@ -128,6 +128,10 @@ POSIX 表示可移植操作系统接口（Portable Operating System Interface of
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302045897.png)
 
+顺便开下这个
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302155337.png)
+
+
 然后保存编译运行即可使用
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302116129.png)
