@@ -135,8 +135,12 @@ POSIX 表示可移植操作系统接口（Portable Operating System Interface of
 每次运行都可以看到这个分区表，这个分区表差不多类似于电脑的硬盘的分区
 
 这是RT-Thread默认分的分区表，虽然有分区了但是还没有格式化
+(默认格式化了filesystem分区,也就是/下的fas文件夹)
 
+首先格式化一下font分区，在此之前需要分配个块设备，相当于硬盘分配盘符d盘，e盘之类
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302130053.png)
 
+然后格式化一下,运行后来到终端输入mkfs -t elm font
 
 
 
