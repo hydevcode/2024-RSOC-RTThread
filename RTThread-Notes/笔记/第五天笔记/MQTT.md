@@ -170,6 +170,10 @@ INIT_BOARD_EXPORT(WIFI_CS_PULL_DOWN);
 ```
 
 继续，挂载font上去就能用了 
+```
+mkdir /fal/font
+mouint font /fal/font elm
+```
 
 
 
