@@ -103,6 +103,34 @@ POSIX 表示可移植操作系统接口（Portable Operating System Interface of
 
 ### 文件系统启动流程
 
+内容比较复杂，先浅浅的来个概念的理解先
+
+这里分为两部分理解
+
+第一部分就是初始化一个DFS组件，把文件系统初始化好，但是还没办法存储东西，因为缺少了类似硬盘一样的东西，于是有了第二部分
+
+第二部分就是针对W25Q64的，首先用SFUD进行驱动，然后通过FAL抽象层注册为BLK设备，然后绑定到第一部分里，这样就可以访问存储了
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302048989.png)
+
+
+### 代码实践
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302042248.png)
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302043387.png)
+
+接下来开一下组件
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302044978.png)
+
+按路径打开完后在进去fatfs里面设置一下
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302045897.png)
+
+
+
+
 
 
 
