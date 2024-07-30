@@ -175,6 +175,17 @@ mkdir /fal/font
 mouint font /fal/font elm
 ```
 
+接下来可以写代码读写文件了
+### 代码实践
+
+实现以下每次mqtt发送温湿度的时候，另外存一份文件
+
+>文件名为：Data.txt；
+	文件内容： 
+	Num：0 (代表总数)
+	Temp：XX ; Humi：XX ; Count： 1（自上电起所采集的数据次数）
+    Temp：XX ; Humi：XX ; Count： 2（自上电起所采集的数据次数）
+    Temp：XX ; Humi：XX ; Count： 3（自上电起所采集的数据次数）
 
 
 
