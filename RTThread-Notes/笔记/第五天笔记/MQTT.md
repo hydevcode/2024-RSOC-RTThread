@@ -1,5 +1,5 @@
 ## 软件包
-## 温湿度传感器
+### 温湿度传感器
 
 首先到Menuconfig开启下对应的软件包
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407300009967.png)
@@ -10,13 +10,13 @@
 
 虽然板子自带的是AHT21，但是这个驱动也是适配的了，而且温湿度传感器代码都差不多的，i2c地址正确就行
 
-### 另外
+#### 另外
 
 如果需要输出小数，那么还需要添加rt_vsnprintf_full包
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407300027894.png)
 
-## MQTT
+### MQTT
 
 首先来到阿里云物联网平台注册一个账号，并且选择开通试用一个实例
 
@@ -28,6 +28,10 @@
 
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407300047004.png)
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407300856900.png)
+
+顺便添加几个模块，方便后面代码实践
 
 接下来到menuconfig去开启下wifi模块的软件包,需要按图配置下针脚
 
@@ -42,6 +46,12 @@
 下面还有个simple也开一下，这是实例
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407300050276.png)
+
+#### 代码实践
+
+实现下上传温湿度到阿里云以及通过mqtt控制板子的led
+
+
 
 ## 组件
 
