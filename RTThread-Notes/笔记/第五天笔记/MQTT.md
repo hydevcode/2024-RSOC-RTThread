@@ -134,6 +134,24 @@ POSIX 表示可移植操作系统接口（Portable Operating System Interface of
 
 然后保存编译运行即可使用
 
+**注意**：由于Rw007模块和W25Q64用的同一个spi2所以还需要在main函数最底下空行加上这个代码
+作用是初始化w25q64前先把Rw007关了
+```
+#define WIFI_CS GET_PIN(F, 10)
+
+void WIFI_CS_PULL_DOWN(void)
+
+{
+
+    rt_pin_mode(WIFI_CS,PIN_MODE_OUTPUT);
+
+    rt_pin_write(WIFI_CS, PIN_LOW);
+
+}
+
+INIT_BOARD_EXPORT(WIFI_CS_PULL_DOWN);
+```
+
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302116129.png)
 
 每次运行都可以看到这个分区表，这个分区表差不多类似于电脑的硬盘的分区
@@ -145,6 +163,13 @@ POSIX 表示可移植操作系统接口（Portable Operating System Interface of
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302130053.png)
 
 然后格式化一下,运行后来到终端输入mkfs -t elm font
+
+**注意**：第一次的新板子可能需要mkfs -t elm filesystem分配下filesystem，然后重启,不然可能会报错
+```
+[684] E/app.filesystem: Failed to initialize filesystem!
+```
+
+继续，挂载font上去就能用了 
 
 
 
