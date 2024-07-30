@@ -128,6 +128,16 @@ POSIX 表示可移植操作系统接口（Portable Operating System Interface of
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302045897.png)
 
+然后保存编译运行即可使用
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302116129.png)
+
+每次运行都可以看到这个分区表，这个分区表差不多类似于电脑的硬盘的分区
+
+这是RT-Thread默认分的分区表，虽然有分区了但是还没有格式化
+
+
+
 
 
 
