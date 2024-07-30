@@ -50,8 +50,22 @@
 #### 代码实践
 
 实现下上传温湿度到阿里云以及通过mqtt控制板子的led
+为了方便理解，所以直接在mqtt提供的示例代码里面改
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302002766.png)
+
+初始化温湿度设备
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302002359.png)
+
+按下图实现温湿度上传
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302003705.png)
 
 
+按下图实现控制亮灯
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302004786.png)
 
 ## 组件
 
