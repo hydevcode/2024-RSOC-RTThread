@@ -62,7 +62,6 @@
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302003705.png)
 
-
 按下图实现控制亮灯
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302004786.png)
@@ -83,7 +82,6 @@
 >有点类似linux
 
 ![DFS 层次架构图](https://www.rt-thread.org/document/site/rt-thread-version/rt-thread-standard/programming-manual/filesystem/figures/fs-layer.png)
-
 
 | 类型    | 特点                                                                                                                                             |
 | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -116,6 +114,8 @@ POSIX 表示可移植操作系统接口（Portable Operating System Interface of
 
 ### 代码实践
 
+打开一下相关的软件包和组件
+
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302042248.png)
 
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302043387.png)
@@ -129,13 +129,14 @@ POSIX 表示可移植操作系统接口（Portable Operating System Interface of
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302045897.png)
 
 顺便开下这个
-![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302155337.png)
 
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302155337.png)
 
 然后保存编译运行即可使用
 
 **注意**：由于Rw007模块和W25Q64用的同一个spi2所以还需要在main函数最底下空行加上这个代码
 作用是初始化w25q64前先把Rw007关了
+
 ```
 #define WIFI_CS GET_PIN(F, 10)
 
@@ -160,36 +161,147 @@ INIT_BOARD_EXPORT(WIFI_CS_PULL_DOWN);
 (默认格式化了filesystem分区,也就是/下的fas文件夹)
 
 首先格式化一下font分区，在此之前需要分配个块设备，相当于硬盘分配盘符d盘，e盘之类
+
 ![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407302130053.png)
 
 然后格式化一下,运行后来到终端输入mkfs -t elm font
 
 **注意**：第一次的新板子可能需要mkfs -t elm filesystem
 mount filesystem /fal elm 分配下filesystem，然后重启,不然可能会报错
+
 ```
 [684] E/app.filesystem: Failed to initialize filesystem!
 ```
 
 继续，挂载font上去就能用了 
+
 ```
 mkdir /fal/font
 mouint font /fal/font elm
 ```
 
 接下来可以写代码读写文件了
+
 ### 代码实践
 
 实现以下每次mqtt发送温湿度的时候，另外存一份文件
 
->文件名为：Data.txt；
+>文件名为：1.txt；
 	文件内容： 
 	Num：0 (代表总数)
 	Temp：XX ; Humi：XX ; Count： 1（自上电起所采集的数据次数）
     Temp：XX ; Humi：XX ; Count： 2（自上电起所采集的数据次数）
     Temp：XX ; Humi：XX ; Count： 3（自上电起所采集的数据次数）
 
+```
 
+static int file_data(void)
 
+{
 
+  
 
+    int fd;
 
+    fd = open("/fal/1.txt", O_RDWR | O_CREAT);
+
+    //如果打开成功
+
+    if (fd >= 0)
+
+    {
+
+        //判断文件是否为空
+
+        rt_uint32_t size = read(fd, buffer, 1);
+
+        if (size < 0)
+
+        {
+
+            rt_kprintf("Read File Fail.\n");
+
+            return ;
+
+        }
+
+  
+
+        if(buffer[0]!='n')
+
+        {
+
+            //写入文件
+
+            write(fd, "num:0\r\n", 8);
+
+            num_count=0;
+
+  
+
+        }else{
+
+            //读取num次数
+
+            lseek(fd, 0, SEEK_SET);
+
+            read(fd, buffer, 8);
+
+            char *ptr = NULL;
+
+            num_count=strtol(buffer+4,ptr,10);
+
+            rt_kprintf("count:%s\n",buffer);
+
+            rt_kprintf("count:%d\n",num_count);
+
+        }
+
+        num_count++;
+
+        lseek(fd, 0, SEEK_SET);
+
+        char temp[5] = {'\0'};
+
+        sprintf(temp, "%d", num_count);
+
+        write(fd, "num:", 4);
+
+        write(fd, temp,3);
+
+        write(fd, "\r\n", 2);
+
+        lseek(fd, 0, SEEK_END);
+
+        char temp_String[40] = {'\0'};
+
+        sprintf(temp_String,String, (int)Temp, (int)Humi, num_count);
+
+        write(fd, temp_String, sizeof(temp_String));
+
+        rt_kprintf("Write done.\n");
+
+        close(fd);
+
+    }
+
+    else
+
+    {
+
+        rt_kprintf("File Open Fail.\n");
+
+    }
+
+    return 0;
+
+}
+```
+
+在上文推送数据到mqtt的时候调用这段代码
+
+![image.png](https://gitee.com/alicization/2024-rsoc-rtthread/raw/master/imgs/202407310015967.png)
+
+运行结果
+
+代码写的比较粗糙，主要是帖子拖了这么久才发有点不好意思,故快速开发一下
