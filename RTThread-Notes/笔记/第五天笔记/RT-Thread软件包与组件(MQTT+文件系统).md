@@ -137,7 +137,7 @@ POSIX 表示可移植操作系统接口（Portable Operating System Interface of
 **注意**：由于Rw007模块和W25Q64用的同一个spi2所以还需要在main函数最底下空行加上这个代码
 作用是初始化w25q64前先把Rw007关了
 
-```
+```c
 #define WIFI_CS GET_PIN(F, 10)
 
 void WIFI_CS_PULL_DOWN(void)
